@@ -1,8 +1,7 @@
 MapVote = {}
-MapVote.Config = {}
 
---Default Config
-MapVoteConfigDefault = {
+//Config start
+MapVote.Config = {
     MapLimit = 24,
     TimeLimit = 28,
     AllowCurrentMap = false,
@@ -10,17 +9,17 @@ MapVoteConfigDefault = {
     MapsBeforeRevote = 3,
     RTVPlayerCount = 3,
     MapPrefixes = {"ttt_"}
-    }
---Default Config
+}
+//Config end.
 
-hook.Add( "Initialize", "MapVoteConfigSetup", function()
+--[[hook.Add( "Initialize", "MapVoteConfigSetup", function()
     if not file.Exists( "mapvote", "DATA") then
         file.CreateDir( "mapvote" )
     end
     if not file.Exists( "mapvote/config.txt", "DATA" ) then
         file.Write( "mapvote/config.txt", util.TableToJSON( MapVoteConfigDefault ) )
     end
-end )
+end )]]
 
 function MapVote.HasExtraVotePower(ply)
 	-- Example that gives admins more voting power
